@@ -13,7 +13,7 @@ class Solution {
 public:
 //1)brute approach
 //Module 1: Finding path from root
-void pathexistornot(TreeNode *root, int target, long long int &sum, int &count){
+void pathexistornot(TreeNode *root, int target, long long sum, int &count, unordered_map<long long,int> &mp){
         //base condition
         if(root==NULL)
         return;
@@ -21,37 +21,52 @@ void pathexistornot(TreeNode *root, int target, long long int &sum, int &count){
         //adding current node
         sum=sum+root->val;
 
-        if(sum==target)
-        count++;
+        if(mp.find(sum - target) != mp.end()){
+            count += mp[sum - target];
+        }
+        
+          mp[sum]++;
         
         //recursion
         
-        pathexistornot(root->left, target,sum, count);
-        pathexistornot(root->right, target,sum, count);
+       if(root->left)
+         pathexistornot(root->left, target, sum, count, mp);
+       if(root->right)
+         pathexistornot(root->right, target, sum, count, mp);
 
-        //backtracking :)
-        
-        sum=sum-root->val;
+        // //backtracking :)
+         mp[sum]--;
+       
     
 
     }
-//Module 2: passing different roots to path exist or not helper, using tree traversal
-int preorder(TreeNode* root, int &count, long long int &sum, int target){
-        if(root==NULL)
-        return -1;
 
-        pathexistornot(root, target, sum, count);
-
-        preorder(root->left,count, sum, target);
-        preorder(root->right,count, sum, target);
-
-
-        return 0;
-    }
-    int pathSum(TreeNode* root, int targetSum) {
-        long long int sum=0;
+   int pathSum(TreeNode* root, int targetSum) {
         int count=0;
-        preorder(root, count, sum, targetSum);
+
+        // map initialization
+        unordered_map<long long,int> mp;
+        mp[0] = 1;   // IMPORTANT
+
+        // single call instead of preorder loop
+        pathexistornot(root, targetSum, 0, count, mp);
+
         return count;
     }
 };
+
+// Why mp[0]=1?
+
+// Handles case where:
+
+// sum == target
+
+// Example:
+
+// target = 5
+// sum = 5
+// sum - target = 0
+
+// So we need:
+
+// mp[0] = 1
