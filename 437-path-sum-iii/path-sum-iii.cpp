@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-//1)brute approach
+//2)optimised
 //Module 1: Finding path from root
 void pathexistornot(TreeNode *root, int target, long long sum, int &count, unordered_map<long long,int> &mp){
         //base condition
