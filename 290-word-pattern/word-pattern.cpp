@@ -10,10 +10,13 @@ public:
         vector<string>v;
         string segment;
         stringstream ss(s);
-      
-        while (ss >> segment) { //  CHANGED
-            v.push_back(segment);
-        }
+        while (getline(ss, segment, ' ')) {
+            
+    // Note: this will produce an empty string for the double space
+    if (!segment.empty()) { 
+        // process segment
+        v.push_back(segment);
+    }}
 
     //  ADDED (size check to avoid out-of-bounds)
         if (pattern.length() != v.size())
