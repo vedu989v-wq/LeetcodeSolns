@@ -12,12 +12,12 @@ for(int i=0; i<rows; i++){
         ans.push_back(v);
     }
 }
-        for (const auto& row : ans) {       // Outer loop for rows
-        for (int element : row) {          // Inner loop for elements
-            cout << element << " ";
-        }
-        cout << endl;
-    }
+    //     for (const auto& row : ans) {       // Outer loop for rows
+    //     for (int element : row) {          // Inner loop for elements
+    //         cout << element << " ";
+    //     }
+    //     cout << endl;
+    // }
     int columnToIndex=2;
     sort(ans.begin(), ans.end(), [columnToIndex](const vector<int>& v1, const vector<int>& v2) {
         return v1[columnToIndex] < v2[columnToIndex];
