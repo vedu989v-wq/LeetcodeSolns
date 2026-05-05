@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
         vector<int>v;
         unordered_map<int, int>m;
         for(int i=0; i<nums.size(); i++){
