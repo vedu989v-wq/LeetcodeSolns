@@ -1,11 +1,14 @@
 class Solution {
 public:
     int maxCount(vector<int>& banned, int n, int maxSum) {
+
+        //marking phase/ invalid elements ki aesi ki tesi
         unordered_map<int, int>m;
         for(int i=0; i<banned.size(); i++){
             m[banned[i]]=-1;
         }
-
+        
+        //sorted order me elements push back in array
         vector<int>arr;
         for(int i=1; i<=n; i++){
            if(m[i]!=-1){
