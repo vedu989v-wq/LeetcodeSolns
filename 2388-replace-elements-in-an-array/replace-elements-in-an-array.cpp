@@ -11,7 +11,7 @@ public:
             if(m.find(operations[i][0]) != m.end()){
                 nums[m[operations[i][0]]]=operations[i][1];
                 m[operations[i][1]]=m[operations[i][0]];
-                m.erase(operations[i][0]);
+                // m.erase(operations[i][0]);
             }
         }
         return nums;
