@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int minimumSum(int num) {
+        vector<int>v;
+        int a=num;
+        while(a){
+            int bit=a%10;
+            v.push_back(bit);
+            a=a/10;
+        }
+        sort(v.begin(), v.end());
+        int sum=v[0]*10+v[1]*10+v[2]+v[3];
+        
+
+        return sum;
+    }
+};
