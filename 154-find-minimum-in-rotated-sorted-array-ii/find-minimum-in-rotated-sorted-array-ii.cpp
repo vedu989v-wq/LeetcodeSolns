@@ -1,9 +1,15 @@
+//key area where the solution to 153 problem may not work here 
+
+//eg: [10, 1, 10, 10, 10] 
+//error: we may find the min element at right, not on left, but condition says something else
+//for this we will seperate the conditon of equality in the searching code
+//in case of duplicacy, we will check if nums[0]>nums[end], which will indicate the min element would be on right, else we will decrease the size of end...
+
+
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        //if array contains same elements throughout
-        // if(nums[0]==nums[nums.size()-1])
-        // return nums[0];
+        
 
         int ans=nums[0];
         int start=0, end=nums.size()-1;
@@ -33,4 +39,6 @@ public:
     }
     return ans;
     }
+
+
 };
