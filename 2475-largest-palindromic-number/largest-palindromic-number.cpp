@@ -25,15 +25,15 @@ public:
     }
 
     //all zeroes case
-    if(part.empty()){
+//     if(part.empty()){
 
-    for(int i=9; i>=0; i--){
+//     for(int i=9; i>=0; i--){
 
-        if(v[i]>0){
-            return string(1, char(i+'0'));
-        }
-    }
-}
+//         if(v[i]>0){
+//             return string(1, char(i+'0'));
+//         }
+//     }
+// }
 
         string rem=part;
         reverse(rem.begin(), rem.end());
@@ -47,6 +47,11 @@ public:
                 
                 }
             }
+        }
+
+        // all zeroes case
+        if(part.empty() && v[0] > 0){
+            return "0";
         }
 
 
