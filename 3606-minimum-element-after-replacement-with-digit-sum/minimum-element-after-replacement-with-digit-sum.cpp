@@ -14,7 +14,13 @@ public:
         ans.push_back(sum);
      }
      
-     sort(ans.begin(), ans.end());
-     return ans[0];
+
+     int mini=INT_MAX;
+    for(int i=0; i<ans.size(); i++){
+     if(ans[i]<mini){
+        mini=ans[i];
+     }
+    }
+     return mini;
     }
 };
