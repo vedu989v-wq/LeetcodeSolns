@@ -1,6 +1,6 @@
 class Solution {
 public:
-//venn diagram approach: because we dont know where and how to move the pointers (i.e; start and end)
+
     int maximumLength(string s) {
         unordered_map<string, int>m;
 
