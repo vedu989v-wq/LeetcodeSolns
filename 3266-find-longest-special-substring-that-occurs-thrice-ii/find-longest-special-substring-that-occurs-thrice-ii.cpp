@@ -16,7 +16,7 @@ public:
 
         while(start<s.size()){
             char ch=s[start];
-            end=start;
+            // end=start;
 
             while(end<s.size() && s[end]==ch){
               end++;
