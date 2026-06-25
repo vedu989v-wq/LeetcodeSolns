@@ -10,7 +10,7 @@ public:
         return a[0] < b[0];
     });
 
-     vector<vector<int>>ans;
+     
      vector<vector<int>>isec;
 
        for(int i=0; i<intervals.size()-1; i++){
@@ -27,10 +27,6 @@ public:
 
             i++;
         }
-        ans.push_back(intervals[i]);
-
-        if(i==intervals.size()-2)
-        ans.push_back(intervals[i+1]);
        }
 
        return isec;
