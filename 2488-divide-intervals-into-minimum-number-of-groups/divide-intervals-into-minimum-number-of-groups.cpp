@@ -1,6 +1,9 @@
 class Solution {
 public:
     int minGroups(vector<vector<int>>& intervals) {
+        //if any active interval is running, new interval can't enter
+        //if new interval can't enter, we can find the maximum running intervals
+        //and those maximum running intervals, logically following the test cases, no interval can go beyond the running intervals to get started for running, those maximum running intervals are minimum groups which can be made, in which there is mutual exclusitivity
        vector<int>first;
        vector<int>second;
        for(int i=0; i<intervals.size(); i++){
