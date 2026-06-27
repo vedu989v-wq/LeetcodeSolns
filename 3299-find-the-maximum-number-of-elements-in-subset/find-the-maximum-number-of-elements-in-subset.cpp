@@ -22,8 +22,8 @@ public:
         int size=0;
         long long x=el;
         while(m.count(x) && m[x]>1){
-            size+=2;
             x*=x;
+            size+=2;
         }
         if(m.count(x))
         ans=max(ans, size+1);
