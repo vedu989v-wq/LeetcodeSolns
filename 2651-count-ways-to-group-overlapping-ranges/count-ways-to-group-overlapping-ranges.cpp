@@ -1,4 +1,3 @@
-#include<cmath>
 class Solution {
 public:
 
@@ -30,6 +29,7 @@ public:
         if(i==intervals.size()-2)
         count++;
        }
+       
        int result=1;
        for(int i=0; i<count; i++){
         result=(result*2)%mod;
