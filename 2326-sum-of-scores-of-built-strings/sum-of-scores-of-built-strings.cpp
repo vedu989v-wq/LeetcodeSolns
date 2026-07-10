@@ -16,7 +16,7 @@ public:
                 z[i]++;
             }
 
-            //readjusting left-right window
+            //readjusting left-right window, it is said that l-r window is the exact copy of current prefix before before l
             if(i+z[i]>r){
                l=i;
                r=i+z[i];
