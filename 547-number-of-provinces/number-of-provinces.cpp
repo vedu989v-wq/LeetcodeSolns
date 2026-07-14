@@ -12,6 +12,7 @@ public:
             //if the city has not been visited yet, we found a new province
             if(!visited[i]){
                 provinces++;
+                }
 
                 //Start BFS to mark all the cities connected to city 'i'
                 queue<int>q;
@@ -30,7 +31,7 @@ public:
                         }
                     }
                 }
-            }
+            
         }
 
         return provinces;
