@@ -67,6 +67,25 @@
 
 class Solution {
 public:
+    int getValue(vector<vector<int>>&series, int timestamp ){
+     int l=0, r=series.size()-1;
+            int idx=-1;
+
+            while(l<=r){
+                int mid=l+(r-l)/2;
+
+                if(series[mid][0]>=timestamp){
+                    idx=mid;
+                    r=mid-1;
+                }
+                else{
+                    l=mid+1;
+                }
+            }
+
+            return (idx == -1) ? 0 : series[idx][1];
+    }
+
     vector<vector<int>> aggregateTimeSeries(vector<vector<int>>& series1, vector<vector<int>>& series2) {
         vector<int>timestamps;
 
@@ -87,48 +106,9 @@ public:
         vector<vector<int>>ans;
 
         for(int i=0; i<timestamps.size(); i++){
-            int sum=0;
+            int sum=getValue(series1, timestamps[i])+getValue(series2, timestamps[i]);
 
-            //binary search in series1 (lower_bound)
-
-            int l=0, r=series1.size()-1;
-            int idx=-1;
-
-            while(l<=r){
-                int mid=l+(r-l)/2;
-
-                if(series1[mid][0]>=timestamps[i]){
-                    idx=mid;
-                    r=mid-1;
-                }
-                else{
-                    l=mid+1;
-                }
-            }
-
-            if(idx!=-1)
-            sum+=series1[idx][1];
-
-            //binary search in series2 (lower_bound)
-            l=0, r=series2.size()-1;
-            idx=-1;
-
-            while(l<=r){
-                int mid=l+(r-l)/2;
-
-                if(series2[mid][0]>=timestamps[i]){
-                    idx=mid;
-                    r=mid-1;
-                }
-                else{
-                    l=mid+1;
-                }
-            }
-
-            if(idx!=-1)
-            sum+=series2[idx][1];
-
-             ans.push_back({timestamps[i], sum});
+            ans.push_back({timestamps[i], sum});
         }
 
       return ans;
